@@ -51,7 +51,7 @@ const today = () => new Date().toISOString().slice(0, 10);
 
 export function generateEmailDraft(
   supabase: DB,
-  input: { applicationId: string | null; purpose: string; tone: string; extraContext?: string },
+  input: { applicationId: string | null; purpose: string; tone: string; extraContext?: string | undefined },
 ): Promise<AiResult<EmailOutput>> {
   return guard(async () => {
     const [app, profile, notes] = await Promise.all([
